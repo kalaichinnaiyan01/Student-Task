@@ -43,9 +43,9 @@ public class StudentsEntity {
 	@Column(name="name")
 	private String name;
 	
-	@JsonFormat(pattern = "yyyy/MM/dd")
+//	@JsonFormat(pattern = "yyyy/MM/dd")
 	@Column(name="data_of_brith")
-	private Date dateOfBirth;
+	private String dateOfBirth;
 	
 	@Enumerated(EnumType.STRING)
 	@Column(name="gender")

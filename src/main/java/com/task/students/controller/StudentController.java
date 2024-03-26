@@ -45,28 +45,30 @@ public class StudentController {
 	    @PostMapping("/saveStudent")
 	    public String saveStudent(StudentsEntity entity) {
 	        service.saveStudent(entity);
-	        return "redirect:/"; // Redirect to the homepage after saving
+	        return "redirect:/"; 
 	    }
-//	@PutMapping("/updateStudent")
-//	public String updateStudent(@RequestBody StudentsEntity entity) {
-//		return service.updateStudent(entity);
-//		
-//	}
-//	@PutMapping("/{studentId}/enable")
-//    public ResponseEntity<Void> enableStudent(@PathVariable Long studentId) throws NotFoundException {
-//		service.enableStudent(studentId);
-//        return ResponseEntity.ok().build();
-//    }
-//
-//    @PutMapping("/{studentId}/disable")
-//    public ResponseEntity<Void> disableStudent(@PathVariable Long studentId) throws NotFoundException {
-//    	service.disableStudent(studentId);
-//        return ResponseEntity.ok().build();
-//    }
-//
-//    @DeleteMapping("/deleteStudent/{id}")
-//	public String deleteStudent(@PathVariable Long id) {
-//		return service.deleteUser(id);
-//		
-//	}
+	    
+	@PutMapping("/updateStudent")
+	public String updateStudent(@RequestBody StudentsEntity entity) {
+		return service.updateStudent(entity);
+		
+	}
+	
+	@PutMapping("/{studentId}/enable")
+    public ResponseEntity<Void> enableStudent(@PathVariable Long studentId) throws NotFoundException {
+		service.enableStudent(studentId);
+        return ResponseEntity.ok().build();
+    }
+
+    @PutMapping("/{studentId}/disable")
+    public ResponseEntity<Void> disableStudent(@PathVariable Long studentId) throws NotFoundException {
+    	service.disableStudent(studentId);
+        return ResponseEntity.ok().build();
+    }
+
+    @DeleteMapping("/deleteStudent/{id}")
+	public String deleteStudent(@PathVariable Long id) {
+		return service.deleteUser(id);
+		
+	}
 }

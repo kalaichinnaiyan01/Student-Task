@@ -9,11 +9,12 @@ import org.springframework.stereotype.Service;
 import com.task.students.entity.ClassTeacherEntity;
 import com.task.students.entity.StudentsEntity;
 import com.task.students.repositary.ClassTeacherRepository;
+
 @Service
 public class ClassTeacherService {
-@Autowired
-ClassTeacherRepository classTeacherRepository;
-	
+	@Autowired
+	ClassTeacherRepository classTeacherRepository;
+
 	public List<ClassTeacherEntity> getAll(Long classId) {
 		return classTeacherRepository.findByClassId(classId);
 	}

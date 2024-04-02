@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+
+<head>
+<meta charset="utf-8">
+<title>STUDENT DETAILS FORM</title>
+</meta>
+<style>
+body {
+	width: 100vw;
+	height: 100vh;
+}
+
+.body {
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 10px 0;
+}
+
+.tables {
+	width: 100%;
+}
+
+table {
+	border-collapse: collapse;
+	width: 100%;
+}
+
+td, th {
+	border: 3px solid gray;
+	text-align: left;
+	padding: 8px;
+}
+
+.download {
+	margin: 0 40px;
+}
+</style>
+</head>
+
+<body>
+	<div class="body">
+		<h2 style="text-align: center">Students List</h2>
+		<div class="tables">
+			<table>
+				<thead>
+					<tr>
+						<th>Id</th>
+						<th>Class Id</th>
+						<th>Class Teacher Id</th>
+						<th>Student Name</th>
+						<th>DOB</th>
+						<th>Gender</th>
+						<th>Address Line1</th>
+
+						<th>City</th>
+
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="student: ${students}">
+						<td th:text="${student.id}"></td>
+						<td th:text="${student.classId}"></td>
+						<td th:text="${student.classTeacherId}"></td>
+						<td th:text="${student.name}"></td>
+						<td th:text="${student.dateOfBirth}"></td>
+						<td th:text="${student.Gender}"></td>
+						<td th:text="${student.addressLine1}"></td>
+						<td th:text="${student.city}"></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</body>
+
+</html>

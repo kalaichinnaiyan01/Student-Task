@@ -3,6 +3,7 @@ package com.task.students.controller;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -47,7 +48,9 @@ public class StudentController {
 	
 	@GetMapping("/student")
 	public String getAllStudents(Model model) {
-		model.addAttribute("showStudentDetails", service.get());
+		List<StudentsEntity> studentDetails = service.get();
+        studentDetails.sort(Comparator.comparing(StudentsEntity::getId));
+		model.addAttribute("showStudentDetails", studentDetails);
 		return "student";
 	}
 
@@ -60,6 +63,7 @@ public class StudentController {
 	@GetMapping("/generatePdf")
     public ResponseEntity<?> generatePdfForStudentDownload() {
         List<StudentsEntity> students = service.getAllStudentsList();
+        students.sort(Comparator.comparing(StudentsEntity::getId));
         Map<String, Object> response = new HashMap<>();
         response.put("students", students);
 
@@ -79,6 +83,7 @@ public class StudentController {
 	@GetMapping("/generateXl")
     public ResponseEntity<?> generateXlForStudentDownload() {
         List<StudentsEntity> students = service.getAllStudentsList();
+        students.sort(Comparator.comparing(StudentsEntity::getId));
         Map<String, Object> response = new HashMap<>();
         response.put("students", students);
 

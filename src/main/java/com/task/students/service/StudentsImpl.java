@@ -71,4 +71,10 @@ public class StudentsImpl implements StudentService {
 		 
 	}
 
+	@Override
+	public List<StudentsEntity> getAllStudentsList() {
+		// TODO Auto-generated method stub
+		return repository.findAll();
+	}
+
 }
